@@ -9,8 +9,9 @@ Este frontend usa variables de entorno de Vite para la comunicacion con el backe
 
 Recomendado por entorno:
 
-- Desarrollo: usa `.env.development` con `VITE_API_BASE_URL=/api`.
-- Produccion (IIS): usa `.env.production` con `VITE_API_BASE_URL=http://192.168.9.169:55000/api`.
+- Desarrollo: `VITE_API_BASE_URL=/api` y `VITE_API_PROXY_TARGET=http://127.0.0.1:50000` (por defecto en `vite.config.js` si no defines la variable).
+- Produccion (Nginx en el mismo dominio): `VITE_API_BASE_URL=/api`; Nginx hace proxy de `/api` al Node en `127.0.0.1:50000` (puerto por defecto del backend).
+- Produccion (IIS u otro host distinto al API): URL absoluta del backend en `VITE_API_BASE_URL` y CORS en el servidor.
 
 Variables disponibles:
 
@@ -26,10 +27,10 @@ Ejecuta:
 npm run dev
 ```
 
-## IIS / Produccion
+## Produccion (build)
 
-1. Verifica que `VITE_API_BASE_URL` apunte al backend real (puerto 55000).
+1. Con Nginx/VPS: deja `VITE_API_BASE_URL=/api` y configura Nginx para enrutar `/api` al backend (ver `deploy/nginx-etiquetas.conf`). El backend por defecto escucha en el puerto **50000**.
 2. Ejecuta `npm run build`.
-3. Publica la carpeta `dist` en IIS.
+3. Publica la carpeta `dist` y el backend segun tu entorno.
 
-Nota: el proxy de Vite solo existe en desarrollo. En IIS, si dejas `/api`, las peticiones se haran al mismo puerto del frontend y pueden devolver 404.
+Nota: el proxy de Vite solo existe en desarrollo. Sin Nginx (o reglas equivalentes en IIS), `/api` debe resolverse en el mismo sitio que sirve el front o usar URL absoluta al API.

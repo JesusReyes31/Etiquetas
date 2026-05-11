@@ -8,7 +8,7 @@ User=www-data
 Group=www-data
 WorkingDirectory=/var/www/etiquetas/backend
 Environment=NODE_ENV=production
-Environment=PORT=5000
+Environment=PORT=50000
 Environment=HOST=127.0.0.1
 # Descomenta cuando tengas .env en el VPS (SYS21, SQLite, etc.):
 # EnvironmentFile=-/var/www/etiquetas/backend/.env

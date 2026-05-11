@@ -1,6 +1,7 @@
 # Copia a .env.production en la raíz del frontend si necesitas overrides.
 # Para VPS + Nginx (mismo dominio para estáticos y API): NO definas
 # VITE_API_BASE_URL, o déjalo como /api. El cliente usará rutas relativas.
+# El Node en el servidor suele escuchar en 127.0.0.1:50000 (ver backend/server.js).
 #
 # VITE_API_BASE_URL=/api
 #

@@ -12,7 +12,7 @@ import sys21Routes from './routes/sys21.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 50000;
 const HOST = process.env.HOST || 'localhost';
 
 app.use(cors());
