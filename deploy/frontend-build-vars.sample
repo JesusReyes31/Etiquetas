@@ -1,0 +1,8 @@
+# Copia a .env.production en la raíz del frontend si necesitas overrides.
+# Para VPS + Nginx (mismo dominio para estáticos y API): NO definas
+# VITE_API_BASE_URL, o déjalo como /api. El cliente usará rutas relativas.
+#
+# VITE_API_BASE_URL=/api
+#
+# Nunca uses http://127.0.0.1 ni http://localhost aquí: el build se
+# rechaza con npm run build (scripts/check-vite-api-base.mjs).
